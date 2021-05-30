@@ -85,6 +85,8 @@ class ExcelEncoder implements EncoderInterface, DecoderInterface
      */
     public function encode($data, $format, array $context = [])
     {
+        $data = ['First Sheet' => $data];
+
         // Si les données ne sont pas sous forme itérable
         if (!is_iterable($data)) {
             throw new NotEncodableValueException(sprintf('Expected data of type iterable, %s given', gettype($data)));
